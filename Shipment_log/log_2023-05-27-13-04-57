@@ -1,0 +1,239 @@
+[2023-05-27 13:05:04,373] root - INFO - export collection data as pandas dataframe
+[2023-05-27 13:05:04,373] root - INFO - Reading data from database :SHIPMENTPRICE and SHIPMENTPRICE_PROJECT
+[2023-05-27 13:05:14,285] root - INFO - Dropping ID Columns
+[2023-05-27 13:05:14,297] root - INFO - Rows and Columns: (10324, 33)
+[2023-05-27 13:05:14,297] root - INFO - save data in feature store
+[2023-05-27 13:05:14,297] root - INFO - Read the dataset from dataframe
+[2023-05-27 13:05:14,705] root - INFO - Save df to feature store folder
+[2023-05-27 13:05:14,781] root - INFO - Splitting data in train and test
+[2023-05-27 13:05:14,785] root - INFO - Create dataset folder if not exist
+[2023-05-27 13:05:14,786] root - INFO - saving dataset to feature store folder
+[2023-05-27 13:05:14,846] root - INFO - Artifact folder Preparation Done in Data Ingestion.
+[2023-05-27 13:05:14,901] root - INFO - train_df : initiate_data_transformation :             Country Managed_By  ... Freight_Cost_USD Line_Item_Insurance_USD
+0      South Africa   PMO - US  ...          5886.90                  572.67
+1            Uganda   PMO - US  ...          2786.61                   45.49
+2              Mali   PMO - US  ...          1840.97                    2.80
+3           Nigeria   PMO - US  ...         13873.00                  327.34
+4     Côte d'Ivoire   PMO - US  ...          4466.99                  246.29
+...             ...        ...  ...              ...                     ...
+4935  Côte d'Ivoire   PMO - US  ...          3256.00                   86.34
+4936         Uganda   PMO - US  ...          7504.00                   62.77
+4937        Nigeria   PMO - US  ...          1176.03                    4.14
+4938       Tanzania   PMO - US  ...         22856.02                  392.00
+4939         Zambia   PMO - US  ...          9421.76                   79.52
+
+[4940 rows x 16 columns]
+[2023-05-27 13:05:14,924] root - INFO - test_df : initiate_data_transformation :             Country Managed_By  ... Freight_Cost_USD Line_Item_Insurance_USD
+0           Nigeria   PMO - US  ...          9736.10                 1288.43
+1      South Africa   PMO - US  ...          7073.56                  306.24
+2          Tanzania   PMO - US  ...          3267.00                   67.44
+3            Guyana   PMO - US  ...          3976.33                   54.37
+4            Rwanda   PMO - US  ...         10500.00                  387.25
+...             ...        ...  ...              ...                     ...
+1230         Guyana   PMO - US  ...           211.00                    2.60
+1231  Côte d'Ivoire   PMO - US  ...          9307.00                  796.16
+1232       Zimbabwe   PMO - US  ...          6331.93                   22.28
+1233   South Africa   PMO - US  ...          9951.37                  363.64
+1234          Kenya   PMO - US  ...         16090.59                 1218.56
+
+[1235 rows x 16 columns]
+[2023-05-27 13:05:14,942] root - INFO - input_feature_train_df: initiate_data_transformation :             Country Managed_By  ... Weight_Kilograms Line_Item_Insurance_USD
+0      South Africa   PMO - US  ...             4815                  572.67
+1            Uganda   PMO - US  ...              389                   45.49
+2              Mali   PMO - US  ...               12                    2.80
+3           Nigeria   PMO - US  ...             2846                  327.34
+4     Côte d'Ivoire   PMO - US  ...              973                  246.29
+...             ...        ...  ...              ...                     ...
+4935  Côte d'Ivoire   PMO - US  ...              771                   86.34
+4936         Uganda   PMO - US  ...             1331                   62.77
+4937        Nigeria   PMO - US  ...              154                    4.14
+4938       Tanzania   PMO - US  ...             3112                  392.00
+4939         Zambia   PMO - US  ...             1936                   79.52
+
+[4940 rows x 15 columns]
+[2023-05-27 13:05:14,955] root - INFO - input_feature_test_df: initiate_data_transformation :             Country Managed_By  ... Weight_Kilograms Line_Item_Insurance_USD
+0           Nigeria   PMO - US  ...             3289                 1288.43
+1      South Africa   PMO - US  ...             7683                  306.24
+2          Tanzania   PMO - US  ...             1802                   67.44
+3            Guyana   PMO - US  ...             1062                   54.37
+4            Rwanda   PMO - US  ...             3656                  387.25
+...             ...        ...  ...              ...                     ...
+1230         Guyana   PMO - US  ...               25                    2.60
+1231  Côte d'Ivoire   PMO - US  ...             2647                  796.16
+1232       Zimbabwe   PMO - US  ...              735                   22.28
+1233   South Africa   PMO - US  ...             4154                  363.64
+1234          Kenya   PMO - US  ...             1427                 1218.56
+
+[1235 rows x 15 columns]
+[2023-05-27 13:05:14,957] root - INFO - target_feature_train_df:0        5886.90
+1        2786.61
+2        1840.97
+3       13873.00
+4        4466.99
+          ...   
+4935     3256.00
+4936     7504.00
+4937     1176.03
+4938    22856.02
+4939     9421.76
+Name: Freight_Cost_USD, Length: 4940, dtype: float64 and target_feature_test_df:0        9736.10
+1        7073.56
+2        3267.00
+3        3976.33
+4       10500.00
+          ...   
+1230      211.00
+1231     9307.00
+1232     6331.93
+1233     9951.37
+1234    16090.59
+Name: Freight_Cost_USD, Length: 1235, dtype: float64
+[2023-05-27 13:05:14,957] root - INFO - Applying preprocessing object on training dataframe and testing dataframe
+[2023-05-27 13:05:14,985] root - INFO - Getting num and cat columns in get_data_transformer_object function line no 45 :['Unit_of_Measure_Per_Pack', 'Line_Item_Quantity', 'Line_Item_Value', 'Pack_Price', 'Unit_Price', 'Weight_Kilograms', 'Line_Item_Insurance_USD'] and  ['Country', 'Managed_By', 'Fulfill_Via', 'Shipment_Mode', 'Product_Group', 'Sub_Classification', 'Brand', 'First_Line_Designation']
+[2023-05-27 13:05:15,005] root - INFO - Preprocessor Object : ColumnTransformer(transformers=[('num_pipeline',
+                                 Pipeline(steps=[('imputer',
+                                                  SimpleImputer(strategy='median')),
+                                                 ('scaler', StandardScaler())]),
+                                 ['Unit_of_Measure_Per_Pack',
+                                  'Line_Item_Quantity', 'Line_Item_Value',
+                                  'Pack_Price', 'Unit_Price',
+                                  'Weight_Kilograms',
+                                  'Line_Item_Insurance_USD']),
+                                ('cat_pipelines',
+                                 Pipeline(steps=[('imputer',
+                                                  SimpleImputer(strategy='most_frequent')),
+                                                 ('one_hot_encoder',
+                                                  OneHotEncoder(handle_unknown='ignore',
+                                                                sparse=False)),
+                                                 ('scaler',
+                                                  StandardScaler(with_mean=False))]),
+                                 ['Country', 'Managed_By', 'Fulfill_Via',
+                                  'Shipment_Mode', 'Product_Group',
+                                  'Sub_Classification', 'Brand',
+                                  'First_Line_Designation'])])
+[2023-05-27 13:05:15,022] root - INFO - preprocessing_obj : ColumnTransformer(transformers=[('num_pipeline',
+                                 Pipeline(steps=[('imputer',
+                                                  SimpleImputer(strategy='median')),
+                                                 ('scaler', StandardScaler())]),
+                                 ['Unit_of_Measure_Per_Pack',
+                                  'Line_Item_Quantity', 'Line_Item_Value',
+                                  'Pack_Price', 'Unit_Price',
+                                  'Weight_Kilograms',
+                                  'Line_Item_Insurance_USD']),
+                                ('cat_pipelines',
+                                 Pipeline(steps=[('imputer',
+                                                  SimpleImputer(strategy='most_frequent')),
+                                                 ('one_hot_encoder',
+                                                  OneHotEncoder(handle_unknown='ignore',
+                                                                sparse=False)),
+                                                 ('scaler',
+                                                  StandardScaler(with_mean=False))]),
+                                 ['Country', 'Managed_By', 'Fulfill_Via',
+                                  'Shipment_Mode', 'Product_Group',
+                                  'Sub_Classification', 'Brand',
+                                  'First_Line_Designation'])])
+[2023-05-27 13:05:15,089] root - INFO - train_arr by doing operation np.c_ [[-5.86371145e-01  8.35060741e-01  2.03624354e-01 ...  0.00000000e+00
+   1.00000000e+00  5.88690000e+03]
+ [-5.86371145e-01 -4.23604640e-01 -3.98583058e-01 ...  0.00000000e+00
+   1.00000000e+00  2.78661000e+03]
+ [ 2.91613934e-01 -5.00339929e-01 -5.13523919e-01 ...  0.00000000e+00
+   1.00000000e+00  1.84097000e+03]
+ ...
+ [ 3.25167791e+00 -4.99283293e-01 -5.13746995e-01 ...  0.00000000e+00
+   1.00000000e+00  1.17603000e+03]
+ [-6.49084365e-01 -2.65649226e-01  2.51216069e-02 ...  0.00000000e+00
+   1.00000000e+00  2.28560200e+04]
+ [-2.10091826e-01 -4.96257667e-02 -3.87861727e-01 ...  0.00000000e+00
+   1.00000000e+00  9.42176000e+03]] and test_arr by doing operation np.c_[[-5.86371145e-01  2.03966990e-01  1.10676535e+00 ...  0.00000000e+00
+   1.00000000e+00  9.73610000e+03]
+ [ 2.04758409e+00 -3.08411181e-02 -1.40526132e-02 ...  2.65841251e+01
+   1.00000000e+00  7.07356000e+03]
+ [-2.10091826e-01 -2.23219401e-01 -4.04295883e-01 ...  0.00000000e+00
+   1.00000000e+00  3.26700000e+03]
+ ...
+ [-2.10091826e-01 -2.44680862e-01 -4.59993790e-01 ...  0.00000000e+00
+   1.00000000e+00  6.33193000e+03]
+ [-5.86371145e-01  6.46955966e-01  8.05794077e-02 ...  0.00000000e+00
+   1.00000000e+00  9.95137000e+03]
+ [ 2.91613934e-01 -3.05613566e-01  1.49013406e+00 ...  0.00000000e+00
+   1.00000000e+00  1.60905900e+04]]
+[2023-05-27 13:05:15,090] root - INFO - file_obj from utils function save_numpy_array_data<_io.BufferedWriter name='D:\\ShipmentPricePredictionProject\\artifact\\05272023__130504\\data_transformation\\transformed\\train.csv'>
+[2023-05-27 13:05:15,091] root - INFO - type of file_obj: <class '_io.BufferedWriter'>
+[2023-05-27 13:05:15,263] root - INFO - file_obj from utils function save_numpy_array_data<_io.BufferedWriter name='D:\\ShipmentPricePredictionProject\\artifact\\05272023__130504\\data_transformation\\transformed\\test.csv'>
+[2023-05-27 13:05:15,264] root - INFO - type of file_obj: <class '_io.BufferedWriter'>
+[2023-05-27 13:05:15,265] root - INFO - Saving preprocessing object
+[2023-05-27 13:05:15,275] root - INFO - Exited the save_object method of utils
+[2023-05-27 13:05:15,289] root - INFO - <_io.BufferedReader name='D:\\ShipmentPricePredictionProject\\artifact\\05272023__130504\\data_transformation\\transformed\\train.csv'>
+[2023-05-27 13:05:15,307] root - INFO - <_io.BufferedReader name='D:\\ShipmentPricePredictionProject\\artifact\\05272023__130504\\data_transformation\\transformed\\test.csv'>
+[2023-05-27 13:05:15,308] root - INFO - train_arr from model_trainer initiate_model_trainer line no 47 is [[-5.86371145e-01  8.35060741e-01  2.03624354e-01 ...  0.00000000e+00
+   1.00000000e+00  5.88690000e+03]
+ [-5.86371145e-01 -4.23604640e-01 -3.98583058e-01 ...  0.00000000e+00
+   1.00000000e+00  2.78661000e+03]
+ [ 2.91613934e-01 -5.00339929e-01 -5.13523919e-01 ...  0.00000000e+00
+   1.00000000e+00  1.84097000e+03]
+ ...
+ [ 3.25167791e+00 -4.99283293e-01 -5.13746995e-01 ...  0.00000000e+00
+   1.00000000e+00  1.17603000e+03]
+ [-6.49084365e-01 -2.65649226e-01  2.51216069e-02 ...  0.00000000e+00
+   1.00000000e+00  2.28560200e+04]
+ [-2.10091826e-01 -4.96257667e-02 -3.87861727e-01 ...  0.00000000e+00
+   1.00000000e+00  9.42176000e+03]]
+[2023-05-27 13:05:15,309] root - INFO - test_arr from model_trainer initiate_model_trainer line no 48 is[[-5.86371145e-01  2.03966990e-01  1.10676535e+00 ...  0.00000000e+00
+   1.00000000e+00  9.73610000e+03]
+ [ 2.04758409e+00 -3.08411181e-02 -1.40526132e-02 ...  2.65841251e+01
+   1.00000000e+00  7.07356000e+03]
+ [-2.10091826e-01 -2.23219401e-01 -4.04295883e-01 ...  0.00000000e+00
+   1.00000000e+00  3.26700000e+03]
+ ...
+ [-2.10091826e-01 -2.44680862e-01 -4.59993790e-01 ...  0.00000000e+00
+   1.00000000e+00  6.33193000e+03]
+ [-5.86371145e-01  6.46955966e-01  8.05794077e-02 ...  0.00000000e+00
+   1.00000000e+00  9.95137000e+03]
+ [ 2.91613934e-01 -3.05613566e-01  1.49013406e+00 ...  0.00000000e+00
+   1.00000000e+00  1.60905900e+04]]
+[2023-05-27 13:06:02,051] root - INFO - Best found model on both training and testing dataset
+[2023-05-27 13:06:02,061] root - INFO - Exited the save_object method of utils
+[2023-05-27 13:06:02,092] root - INFO - Best model is :XGBRegressor(base_score=0.5, booster='gbtree', callbacks=None,
+             colsample_bylevel=1, colsample_bynode=1, colsample_bytree=1,
+             early_stopping_rounds=None, enable_categorical=False,
+             eval_metric=None, gamma=0, gpu_id=-1, grow_policy='depthwise',
+             importance_type=None, interaction_constraints='',
+             learning_rate=0.05, max_bin=256, max_cat_to_onehot=4,
+             max_delta_step=0, max_depth=6, max_leaves=0, min_child_weight=1,
+             missing=nan, monotone_constraints='()', n_estimators=256, n_jobs=0,
+             num_parallel_tree=1, predictor='auto', random_state=0, reg_alpha=0,
+             reg_lambda=1, ...), r2_score is 0.7421093546970259
+[2023-05-27 13:06:02,096] root - INFO - Model Trainer Done
+[2023-05-27 13:06:02,264] root - INFO - transformers: ColumnTransformer(transformers=[('num_pipeline',
+                                 Pipeline(steps=[('imputer',
+                                                  SimpleImputer(strategy='median')),
+                                                 ('scaler', StandardScaler())]),
+                                 ['Unit_of_Measure_Per_Pack',
+                                  'Line_Item_Quantity', 'Line_Item_Value',
+                                  'Pack_Price', 'Unit_Price',
+                                  'Weight_Kilograms',
+                                  'Line_Item_Insurance_USD']),
+                                ('cat_pipelines',
+                                 Pipeline(steps=[('imputer',
+                                                  SimpleImputer(strategy='most_frequent')),
+                                                 ('one_hot_encoder',
+                                                  OneHotEncoder(handle_unknown='ignore',
+                                                                sparse=False)),
+                                                 ('scaler',
+                                                  StandardScaler(with_mean=False))]),
+                                 ['Country', 'Managed_By', 'Fulfill_Via',
+                                  'Shipment_Mode', 'Product_Group',
+                                  'Sub_Classification', 'Brand',
+                                  'First_Line_Designation'])]) and model: RandomForestRegressor(n_estimators=256)
+[2023-05-27 13:06:02,435] root - INFO - Accuracy using current trained model: 0.7421093546970259
+[2023-05-27 13:06:02,435] root - INFO - Current trained model is not better than previous model
+[2023-05-27 13:06:02,435] root - INFO - Model eval artifact: ModelEvaluationArtifact(is_model_accepted=True, improved_accuracy=-0.17481754413010886)
+[2023-05-27 13:06:02,435] root - INFO - Model Eval Completed.
+[2023-05-27 13:06:02,454] root - INFO - Loading transformer model and target encoder
+[2023-05-27 13:06:02,466] root - INFO - Saving model into model pusher directory
+[2023-05-27 13:06:02,472] root - INFO - Exited the save_object method of utils
+[2023-05-27 13:06:02,486] root - INFO - Exited the save_object method of utils
+[2023-05-27 13:06:02,486] root - INFO - Saving model in saved model dir
+[2023-05-27 13:06:02,491] root - INFO - Exited the save_object method of utils
+[2023-05-27 13:06:02,502] root - INFO - Exited the save_object method of utils
+[2023-05-27 13:06:02,502] root - INFO - Model pusher artifact: ModelPusherArtifact(pusher_model_dir='D:\\ShipmentPricePredictionProject\\artifact\\05272023__130504\\model_pusher_file\\saved_models', saved_model_dir='saved_models')

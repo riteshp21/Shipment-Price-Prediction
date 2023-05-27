@@ -1,0 +1,8 @@
+pandas
+numpy
+dnspython==2.2.1
+fastapi==0.78.0
+python-dotenv==0.21.0
+scikit-learn
+catboost
+-e .

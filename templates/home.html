@@ -1,0 +1,250 @@
+<html>
+<head>
+
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<style>
+body {
+  background-image: url('https://img.freepik.com/free-photo/container-cargo-freight-ship-port_554837-775.jpg?w=996&t=st=1684989268~exp=1684989868~hmac=61f3c895f96c8f6dbcf1a572a68be8f62f8fceb8f5e022d9d72045136ebc0256');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+label {
+  font-weight: bold;
+
+}
+
+</style>
+
+<style>
+body {
+  background-color: rgb(157, 184, 194);
+}
+h1 {text-align: center;}
+h2 {text-align: center;}
+p {text-align: center;}
+div {text-align: center;}
+
+</style>
+
+</head>
+
+
+
+    <body>
+        <div class="login">
+               <h1>Shipment Price Prediction</h1>
+            <form action="{{ url_for('predict_datapoint')}}" method="post">
+
+
+                    <div class="mb-3">
+                        <label class="form-label">country</label><br>
+                        <select class="form-control" name="country" placeholder ="Enter Country Name"
+                            required="required">
+                            <option value="Vietnam">Vietnam</option>
+                            <option value="Nigeria">Nigeria</option>
+                            <option value="Zambia">Zambia</option>
+                            <option value="Tanzania">Tanzania</option>
+                            <option value="Rwanda">Rwanda</option>
+                            <option value="Haiti">Haiti</option>
+                            <option value="Zimbabwe">Zimbabwe</option>
+                            <option value="Ethiopia">Ethiopia</option>
+                            <option value="South Africa">South Africa</option>
+                            <option value="Guyana">Guyana</option>
+                            <option value="Namibia">Namibia</option>
+                            <option value="Botswana">Botswana</option>
+                            <option value="Mozambique">Mozambique</option>
+                            <option value="Kenya">Kenya</option>
+                            <option value="Kazakhstan">Kazakhstan</option>
+                            <option value="Uganda">Uganda</option>
+                            <option value="Kyrgyzstan">Kyrgyzstan</option>
+                            <option value="Senegal">Senegal</option>
+                            <option value="Benin">Benin</option>
+                            <option value="Lesotho">Lesotho</option>
+                            <option value="Pakistan">Pakistan</option>
+                            <option value="Swaziland">Swaziland</option>
+                            <option value="Ghana">Ghana</option>
+
+                        </select>
+                    </div><br>
+                    <div class="mb-3">
+                        <label class="form-label">Managed_By</label><br>
+                        <select class="form-control" name="Managed_By"
+                            required="required">
+                            <option value="PMO - US">PMO - US</option>
+                            <option value="South Africa Field Office">South Africa Field Office</option>
+                            <option value="Haiti Field Office">Haiti Field Office</option>
+                            <option value="Ethiopia Field Office">Ethiopia Field Office</option>
+                        </select>
+                    </div><br>
+
+                <div class="mb-3">
+                        <label class="form-label">Sub_Classification</label><br>
+                        <select class="form-control" name="Sub_Classification"
+                            required="required">
+                            <option value="HIV test">HIV test</option>
+                            <option value="Pediatric">Pediatric</option>
+                            <option value="Adult">Adult</option>
+                            <option value="HIV test - Ancillary">HIV test - Ancillary</option>
+                            <option value="ACT">ACT</option>
+                            <option value="Malaria">Malaria</option>
+                        </select>
+                    </div><br>
+
+
+                    <div class="mb-3">
+                        <label class="form-label">Fulfill_Via</label><br>
+                        <select class="form-control" name="Fulfill_Via"
+                            required="required">
+                            <option value="Direct Drop">Direct Drop</option>
+                            <option value="From RDC">From RDC</option>
+                        </select>
+                    </div><br>
+
+                    <div class="mb-3">
+                        <label class="form-label">Shipment_Mode</label><br>
+                        <select class="form-control" name="Shipment_Mode"
+                            required="required">
+                            <option value="Air">Air</option>
+                            <option value="Truck">Truck</option>
+                            <option value="Air Charter">Air Charter</option>
+                            <option value="Ocean">Ocean</option>
+                        </select>
+                    </div><br>
+
+                    <div class="mb-3">
+                        <label class="form-label">Product_Group</label><br>
+                        <select class="form-control" name="Product_Group"
+                            required="required">
+                            <option value="HRDT">HRDT</option>
+                            <option value="ARV">ARV</option>
+                            <option value="MRDT">MRDT</option>
+                            <option value="ANTM">ANTM</option>
+                        </select>
+                    </div><br>
+
+                    <div class="mb-3">
+                        <label class="form-label">Brand</label><br>
+                        <select class="form-control" name="Brand"
+                            required="required">
+                            <option value="Reveal">Reveal</option>
+                            <option value="Generic">Generic</option>
+                            <option value="Determine">Determine</option>
+                            <option value="Stocrin/Sustiva">Stocrin/Sustiva</option>
+                            <option value="Aluvia">Aluvia</option>
+                            <option value="Uni-Gold">Uni-Gold</option>
+                            <option value="InstantCHEK">InstantCHEK</option>
+                            <option value="Videx">Videx</option>
+                            <option value="First Response">First Response</option>
+                            <option value="Stat-Pak">Stat-Pak</option>
+                            <option value="OraQuick">OraQuick</option>
+                            <option value="Bioline">Bioline</option>
+                            <option value="Retrovir">Retrovir</option>
+                            <option value="Viread">Viread</option>
+                            <option value="Zerit">Zerit</option>
+                            <option value="Capillus">Capillus</option>
+                            <option value="Genie">Genie</option>
+                            <option value="Invirase">Invirase</option>
+                            <option value="Videx EC">Videx EC</option>
+                            <option value="Ziagen">Ziagen</option>
+                            <option value="Coartem">Coartem</option>
+                            <option value="Viramune">Viramune</option>
+                            <option value="Paramax">Paramax</option>
+                            <option value="Atripla">Atripla</option>
+                            <option value="Kaletra">Kaletra</option>
+                            <option value="Epivir">Epivir</option>
+                            <option value="Norvir">Norvir</option>
+                            <option value="Truvada">Truvada</option>
+                            <option value="Clearview">Clearview</option>
+                            <option value="Colloidal Gold">Colloidal Gold</option>
+                            <option value="INSTi">INSTi</option>
+                            <option value="Trizivir">Trizivir</option>
+                            <option value="Visitect">Visitect</option>
+                            <option value="Viracept">Viracept</option>
+                            <option value="DoubleCheck">DoubleCheck</option>
+                            <option value="Bundi">Bundi</option>
+                            <option value="ImmunoComb">ImmunoComb</option>
+                            <option value="Crixivan">Crixivan</option>
+                            <option value="LAV">LAV</option>
+                            <option value="Pepti-LAV">Pepti-LAV</option>
+                            <option value="Intelence">Intelence</option>
+                            <option value="Prezista">Prezista</option>
+                            <option value="Isentress">Isentress</option>
+                            <option value="Reyataz">Reyataz</option>
+                            <option value="Combivir">Combivir</option>
+                            <option value="Multispot">Multispot</option>
+                            <option value="CareStart">CareStart</option>
+                            <option value="Hexagon">Hexagon</option>
+                        </select>
+                    </div><br>
+
+                 <div class="mb-3">
+                        <label class="form-label">First_Line_Designation</label><br>
+                        <select class="form-control" name="First_Line_Designation"
+                            required="required">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div><br>
+
+                    <div class="mb-3">
+                        <label class="form-label">Unit_of_Measure_Per_Pack</label><br>
+                        <input class="form-control" type="number" name="Unit_of_Measure_Per_Pack" placeholder="Enter a value of Unit_of_Measure_Per_Pack"
+                            required="required" />
+
+                    </div><br>
+                    <div class="mb-3">
+                        <label class="form-label">Line_Item_Quantity</label><br>
+                        <input class="form-control" type="number" name="Line_Item_Quantity" placeholder="Enter a value of Line_Item_Quantity"
+                            required="required" />
+                    </div><br>
+                    <div class="mb-3">
+                        <label class="form-label">Line_Item_Value</label><br>
+                        <input class="form-control" type="number" step="0.01" name="Line_Item_Value" placeholder="Enter a value of Line_Item_Value"
+                            required="required" />
+                    </div><br>
+                    <div class="mb-3">
+                        <label class="form-label">Pack_Price</label><br>
+                        <input class="form-control" type="number" step="0.01" name="Pack_Price" placeholder="Enter a value of Pack_Price"
+                            required="required" />
+                    </div><br>
+
+
+                    <div class="mb-3">
+                        <label class="form-label">Line_Item_Insurance_USD</label><br>
+                        <input class="form-control" type="number" step="0.01" name="Line_Item_Insurance_USD" placeholder="Enter a value of Line_Item_Insurance_USD"
+                            required="required" />
+                    </div><br>
+
+                 <div class="mb-3">
+                        <label class="form-label">Unit_Price</label><br>
+                        <input class="form-control" type="number" step="0.01" name="Unit_Price" placeholder="Enter a value of Unit_Price"
+                            required="required" />
+                    </div><br>
+
+
+
+                     <div class="mb-3">
+                        <label class="form-label">Weight_Kilograms</label><br>
+                        <input class="form-control" type="number" step="0.01" name="Weight_Kilograms" placeholder="Enter a value of Weight_Kilograms"
+                            required="required" />
+                    </div><br>
+
+
+                    <div class="mb-3">
+                        <input class="btn btn-primary" type="submit" value="Predict Shipment Price" required />
+                    </div>
+            </form>
+        </div>
+
+
+        <h2>
+           Shipment price prediction is {{results}}
+        </h2>
+    </body>
+</html>
